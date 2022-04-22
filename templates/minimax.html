@@ -1,0 +1,42 @@
+{% extends 'layout.html' %}
+
+{% block css_scripts %}
+    <link rel="stylesheet" href="./../static/game.css">
+{% endblock %}
+
+{% block content %}
+    <h1> Minimax algorithm to solve Mastermind</h1>
+    <p>The Give a Hint algorithm will implement Knuth's version of the minimax algorithm to provide the next best guess. For the best guess, we consider the guess which eliminates as many possibilities as possible, so that the remaining options are the minimum.   </p>
+    <p>Knuth’s algorithm guarantees the solution of a Mastermind game of 4 pegs and 6 colours in 5 steps or less.  </p>
+    <p>Knuth presented his algorithm in 1975, a few months after the first appearance of the game in 1975’s Christmas season. He considers the main version of the game with 4 pegs and 6 colours, with repetition (duplicates) allowed. Knuth’s algorithm uses the minimax technique to propose the next guess. The goal is to eliminate as many combinations of colours as possible, by minimizing the loss. </p>
+    <p>In general, the minimax algorithm is used in game theory to make decisions about the next move. It provides an optimal move for the player and has a lot of applications in Artificial Intelligence. The key idea is to minimize the possible maximum loss from the player’s move by backtracking (or recursively computing) the consequences of every action at every given stage of the game. The algorithm keeps a record of the maximum losses and selects the one move with the minimum maximum loss (hence minimax algorithm). </p>
+    <ol>
+        <li>Create a set of all possible codes S</li>
+        <li>Guess 1122 (you may start otherwise but 1122 as a starting guess guarantees the solution in 5 steps or less).</li>
+        <li>Get score (response) for the guess in the form of number of blacks and number of whites. </li>
+        <li>If blacks = 4, exit. Black keys are used for when a correctly coloured peg is in the correct hole.</li>
+        <li>Remove from S any code which does not give the same score if the guess was the code. </li>
+        <li>Minimax technique:</li>
+        <ol>
+            <li>Take set of untried codes T (not only S)</li>
+            <li>Consider every code of T as guess g.</li>
+            <li>For each g iterate again over T considering every code of T as true code.</li>
+            <li>Calculate the score produced by guessing g if real code was c. (0,0) - 35 (0,1) - 60, (2,0) - 55 </li>
+            <li>Keep a table of scores. How many combinations of T produce each score.  </li>
+            <li>For that g find which code came up more often (max times). The smaller the max, the better. </li>
+            <li>Score of g is the number of elements of T - max. This is how many remaining combinations the choice of g will eliminate. </li>
+            <li>Select as next guess g, the one with the higher score. </li>
+            <li>Go to the first step 3.</li>
+        </ol>
+    </ol>
+    <p>The first step of the algorithm is based on the fact that the score of a guess equals the score of the code, if the code was the guess and the guess was the code.  </p>
+    <p>For example, if the code is 1234 and the guess is 1122, the score will be {1,1}. Vice versa, if we consider 1122 to be the code and 1234 to be the guess, the score would be the same, {1,1}. Of course more than one combination would produce the same score.  </p>
+    <p>From the whole set of all possible codes, we can remove every code which does not give the same score with the real score, if the guess was the code. The new, reduced set of codes, will necessarily contain the real code. By reducing the set of next possible guesses, we can choose the next possible move, but this is not enough.  </p>
+    <p>The second step of the algorithm is to use the minimax algorithm to select from the set of the untried codes, the best possible move.</p>
+    <p>You can access Knuth's paper here and read for yourself if you are interested: <a href="https://www.cs.uni.edu/~wallingf/teaching/cs3530/resources/knuth-mastermind.pdf">THE COMPUTER AS MASTERMIND</a></p>
+
+
+
+
+
+{% endblock %}
