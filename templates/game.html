@@ -1,0 +1,76 @@
+{% extends 'layout.html' %}
+
+{% block css_scripts %}
+    <link rel="stylesheet" href="./../static/game.css">
+{% endblock %}
+
+{% block content %}
+
+    <!-- Add these for front end JS code -->
+    <input type="hidden" name="numCol" value="{{ numCol }}">
+    <input type="hidden" name="codeLength" value="{{ codeLength }}">
+    <input type="hidden" name="duplicate" value="{{ duplicate }}">
+    <input type="hidden" name="tries" value="{{ rows }}">
+
+    <div id="game-board">
+        <p class='instructions'> Choose colors from palette, guess and check </p>
+        <div class="try">
+            {% for col in range(codeLength) %}
+                <div id="{{ 'slot-{}-{}'.format(0, col) }}" class="slot"></div>
+            {% endfor %}
+
+            <div class='hint'>
+                {% for row in range(hintRows) %}
+                    {% if row == hintRows-1 and isOdd %}
+                        <div>
+                            <span></span>
+                        </div>
+                    {% else %}
+                        <div>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+
+    </div>
+<p></p>
+    <div id="palette-space">
+        <p class='instructions'> Color Palette </p>
+        <div id="color-palette">
+            <!-- Generate color palette here -->
+            <!-- colors is dictionary -->
+            {% for value, color in colors.items() %}
+                <div class="palette-color" style="background-color: {{ color }};" data-value="{{ value }}" data-color="{{ color }}"></div>
+                <!-- data attributes for CSS: https://css-tricks.com/a-complete-guide-to-data-attributes/ -->
+            {% endfor %}
+        </div>
+    </div>
+
+
+    <hr>
+    <div id="game-ctrls">
+        <button id="check-btn" type="button">Check</button>
+        <button id="hint-btn" type="button">Hint</button>
+    </div>
+    <hr>
+
+    <h1><div id="game-updates"></div></h1>
+    <p></p>
+    <div id="hint-display"></div>
+
+    <!-- Output for debugging reasons during development
+
+    <div>
+        <h2>This is only for me</h2>
+        <h3>code is {{code}}</h3>
+        <h3>colors is {{colors}}</h3>
+        <h3>length of S is {{lengthS}}</h3>
+    </div>
+
+    -->
+
+    <script src="./../static/game.js" defer></script>
+{% endblock %}
