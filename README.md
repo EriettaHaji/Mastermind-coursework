@@ -7,3 +7,5 @@ The ‘Code Master’ uses:
 - no key for an incorrectly coloured peg
 
 Once feedback is provided, another guess is made; guesses and feedback continue to alternate until either the codebreaker guesses correctly, or all rows of the decoding boards are full. There are different variations of the game: you can decide if you want duplicates of colours, how many colours and the length of the code.
+
+http://playmastermind.pythonanywhere.com/ 
