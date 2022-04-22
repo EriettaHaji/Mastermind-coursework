@@ -1,0 +1,53 @@
+:root {
+    --max-width: 1024px;
+    --box-padding: 25px;
+    --app-bg-color: white;
+    --primary-button-color: blue;
+    --warning-button-color: yellow;
+    --error-button-color: red;
+    --slot-width: 50px;
+    --slot-height: 50px;
+}
+
+
+#app-wrapper {
+    margin: 0 auto;
+    max-width: var(--max-width);
+    display: flex;
+    flex-direction: column;
+    padding: var(--box-padding);
+}
+#menu{
+    margin: 0 auto;
+    padding: var(--box-padding);
+    max-width: var(--max-width);
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-list{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+  text-align: center;
+}
+
+.menu-item {
+  float: left;
+  display: inline-block;
+}
+
+.menu-item a {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+
+}
+
+.menu-item a:hover {
+  background-color: #111;
+}
