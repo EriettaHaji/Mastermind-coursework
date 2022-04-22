@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;500;600;700;800;900&display=swap');
+
+body {
+  font-family: 'Roboto Slab', serif;
+}
+
+h1 {
+    text-align: center;
+}
+
+#game-board {
+    width : 50%;
+    margin: 0 auto;
+    padding: var(--box-padding);
+    background-color: beige;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#palette-space{
+    width : 50%;
+    margin: 0 auto;
+    padding: var(--box-padding);
+    background-color: beige;
+}
+
+@media only screen and (max-width: 600px) {
+    #game-board {
+        width : 100%;
+    }
+
+    #palette-space{
+        width : 100%;
+    }
+}
+
+.instructions{
+    text-align:center;
+    font-size: 20px;
+    color: blueviolet;
+}
+
+.try {
+    display: flex;
+    justify-content: start;
+    padding: var(--box-padding);
+    border: 1px solid blue;
+}
+
+.hint {
+    display: flex;
+    justify-content: center;
+    border: 1px solid green;
+    width: 25%;
+    flex-wrap: wrap;
+}
+
+.hint > div {
+    display: flex;
+    justify-content: space-around;
+}
+
+.hint > div > span {
+    margin: 5px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: blueviolet;
+}
+
+.slot {
+    width: var(--slot-width);
+    height: var(--slot-height);
+    border-radius: 50%;
+    background-color: rgb(149, 187, 189);
+    margin-right: 20px;
+}
+.slot:last-child {
+    margin-right: 0px;
+}
+
+#color-palette {
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.color {
+    width: var(--slot-width);
+    height: var(--slot-height);
+    border-radius: 50%;
+    margin-right: 20px;
+}
+.palette-color {
+    /** Display as rectangular blocks not circles **/
+    width: var(--slot-width);
+    height: var(--slot-height);
+    margin-right: 20px;
+}
+
+#red {
+    background-color: red;
+}
+#blue {
+    background-color: blue;
+}
+
+#game-ctrls {
+    display: flex;
+    justify-content: center;
+}
+
+#game-ctrls > button {
+    background-color: blueviolet;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-right: 20px;
+}
+
+#game-updates {
+    display: flex;
+    justify-content: center;
+    font-size: 16;
+    font-weight: 600;
+    color: #000000;
+}
+
+#hint-display {
+    display: flex;
+    justify-content: center;
+    font-size: 16;
+    font-weight: 600;
+    color: #000000;
+}
+
+.hint-color {
+    width: var(--slot-width);
+    height: var(--slot-height);
+    border-radius: 50%;
+    margin-right: 20px;
+}
