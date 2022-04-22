@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Mastermind - The Game</title>
+        <meta name="description" content="A code guessing game">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./../static/layout.css">
+
+        {% block css_scripts %} {% endblock %}
+    </head>
+    <body>
+        <div id="menu">
+            <ul class="menu-list">
+                <li class="menu-item"><a href="/">Home</a></li>
+                <li class="menu-item"><a href="/play">Play</a></li>
+                <li class="menu-item"><a href="/minimax">About minimax algorithm</a></li>
+            </ul>
+        </div>
+
+        <div id="app-wrapper">
+            {% block content %} {% endblock %}
+        </div>
+    </body>
+</html>
